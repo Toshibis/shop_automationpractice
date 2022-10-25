@@ -1,5 +1,4 @@
-from pages.base_page import BasePage
-from pages.main_page import MainPage
+from shop_automationpractice.pages.main_page import MainPage
 
 
 def test_searching_products(browser):
@@ -14,6 +13,7 @@ def test_popular_list_as_default(browser):
     page = MainPage(browser, link)
     page.open()
     page.should_be_popular_list_as_default()
+
 
 def test_discount_products_in_bestsellers_list(browser):
     link = "http://automationpractice.com/index.php"
