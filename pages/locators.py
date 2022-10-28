@@ -21,8 +21,11 @@ class LoginPageLocators:
     CREATE_FORM_PERSONAL_LAST_NAME = (By.XPATH, "//input[@id='customer_lastname']")
     CREATE_FORM_PERSONAL_PASSWORD = (By.XPATH, "//input[@id='passwd']")
     CREATE_FORM_PERSONAL_DATE_OF_BIRTH_D = (By.XPATH, "//select[@id='days']")
+    CREATE_FORM_PERSONAL_SELECT_DATE_OF_BIRTH_D = (By.XPATH, '//*[@id="days"]/option[11]')
     CREATE_FORM_PERSONAL_DATE_OF_BIRTH_M = (By.XPATH, "//select[@id='months']")
+    CREATE_FORM_PERSONAL_SELECT_DATE_OF_BIRTH_M = (By.XPATH, '// *[ @ id = "months"] / option[7]')
     CREATE_FORM_PERSONAL_DATE_OF_BIRTH_Y = (By.XPATH, "//select[@id='years']")
+    CREATE_FORM_PERSONAL_SELECT_DATE_OF_BIRTH_Y = (By.XPATH, '//*[@id="years"]/option[24]')
     CREATE_FORM_PERSONAL_NEWSLETTER = (By.XPATH, "//label[@for='newsletter']")
     CREATE_FORM_PERSONAL_PARTNERS = (By.XPATH, "//label[@for='optin']")
     # Registration form "YOUR ADDRESS"
@@ -33,11 +36,16 @@ class LoginPageLocators:
     CREATE_FORM_ADDRESS_ADDRESS_LINE2 = (By.XPATH, "//input[@id='address2']")
     CREATE_FORM_ADDRESS_CITY = (By.XPATH, "//input[@id='city']")
     CREATE_FORM_ADDRESS_STATE = (By.XPATH, "//select[@id='id_state']")
+    CREATE_FORM_ADDRESS_SELECT_STATE = (By.XPATH, '//*[@id="id_state"]/option[6]')
     CREATE_FORM_ADDRESS_ZIP = (By.XPATH, "//input[@id='postcode']")
     CREATE_FORM_ADDRESS_COUNTRY = (By.XPATH, "//select[@id='id_country']")
+    CREATE_FORM_ADDRESS_SELECT_COUNTRY = (By.XPATH, '//*[@id="id_country"]/option[2]')
     CREATE_FORM_ADDRESS_ADD_INFO = (By.XPATH, "//textarea[@id='other']")
     CREATE_FORM_ADDRESS_HOME_PHONE = (By.XPATH, "//input[@id='phone']")
     CREATE_FORM_ADDRESS_MOBILE_PHONE = (By.XPATH, "//input[@id='phone_mobile']")
     CREATE_FORM_ADDRESS_ASSIGN_AN_ADDRESS_ALIAS = (By.XPATH, "//input[@id='alias']")
     REGISTER_BTN = (By.XPATH, "//span[normalize-space()='Register']")
+    SUCCESSFUL_REGISTRATION = (By.XPATH, "//p[@class='info-account']")
+    ERROR_OF_FORM = (By.XPATH, '//*[@id="center_column"]/div/ol/li/b')
+
 
