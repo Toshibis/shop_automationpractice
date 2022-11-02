@@ -11,7 +11,8 @@ class MainPageLocators:
 
 
 class LoginPageLocators:
-    EMAIL_FIELD = (By.XPATH, "//input[@id='email_create']")
+    #Sign Up elements
+    SIGNUP_EMAIL_FIELD = (By.XPATH, "//input[@id='email_create']")
     CREATE_ACC_BTN = (By.XPATH, "//span[normalize-space()='Create an account']")
     RESULT = (By.XPATH, "//h3[normalize-space()='Your personal information']")
     #Registration form "YOUR PERSONAL INFORMATION"
@@ -46,6 +47,18 @@ class LoginPageLocators:
     CREATE_FORM_ADDRESS_ASSIGN_AN_ADDRESS_ALIAS = (By.XPATH, "//input[@id='alias']")
     REGISTER_BTN = (By.XPATH, "//span[normalize-space()='Register']")
     SUCCESSFUL_REGISTRATION = (By.XPATH, "//p[@class='info-account']")
-    ERROR_OF_FORM = (By.XPATH, '//*[@id="center_column"]/div/ol/li/b')
+    ERROR_OF_FORM = (By.XPATH, '//*[@id="center_column"]/div/ol/li')
+    # Sign In elements
+    SIGNIN_EMAIL_FIELD = (By.XPATH, "//input[@id='email']")
+    SIGNIN_PASSWORD_FIELD = (By.XPATH, "//input[@id='passwd']")
+    SIGNIN_BTN = (By.XPATH, "//span[normalize-space()='Sign in']")
+    ACCOUNT_PAGE_CHECK = (By.XPATH, "//p[@class='info-account']")
+
+
+class BasketPageLocators:
+    PRODUCT_COLOR = (By.XPATH, "//a[@id='color_8']")
+    ADD_TO_CART_BTN = (By.XPATH, "//span[normalize-space()='Add to cart']")
+    SUCCESSFULLY_ADDING_TO_CART = (By.XPATH, "//h2[normalize-space()='Product successfully added to your shopping cart']")
+
 
 

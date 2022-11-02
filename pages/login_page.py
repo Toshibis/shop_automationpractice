@@ -1,4 +1,5 @@
 from .base_page import BasePage
+from .data import AuthorisationData
 from .locators import LoginPageLocators
 import time
 
@@ -6,7 +7,7 @@ import time
 class LoginPage(BasePage):
 
     def sign_up_new_user(self):
-        email_field = self.browser.find_element(*LoginPageLocators.EMAIL_FIELD)
+        email_field = self.browser.find_element(*LoginPageLocators.SIGNUP_EMAIL_FIELD)
         email = str(time.time()) + "@fakeemail.org"
         email_field.send_keys(email)
         button = self.browser.find_element(*LoginPageLocators.CREATE_ACC_BTN)
@@ -23,15 +24,18 @@ class LoginPage(BasePage):
         personal_password.send_keys("12345")
         date_of_birth_day = self.browser.find_element(*LoginPageLocators.CREATE_FORM_PERSONAL_DATE_OF_BIRTH_D)
         date_of_birth_day.click()
-        select_date_of_birth_day = self.browser.find_element(*LoginPageLocators.CREATE_FORM_PERSONAL_SELECT_DATE_OF_BIRTH_D)
+        select_date_of_birth_day = self.browser.find_element(
+            *LoginPageLocators.CREATE_FORM_PERSONAL_SELECT_DATE_OF_BIRTH_D)
         select_date_of_birth_day.click()
         date_of_birth_month = self.browser.find_element(*LoginPageLocators.CREATE_FORM_PERSONAL_DATE_OF_BIRTH_M)
         date_of_birth_month.click()
-        select_date_of_birth_month = self.browser.find_element(*LoginPageLocators.CREATE_FORM_PERSONAL_SELECT_DATE_OF_BIRTH_M)
+        select_date_of_birth_month = self.browser.find_element(
+            *LoginPageLocators.CREATE_FORM_PERSONAL_SELECT_DATE_OF_BIRTH_M)
         select_date_of_birth_month.click()
         date_of_birth_year = self.browser.find_element(*LoginPageLocators.CREATE_FORM_PERSONAL_DATE_OF_BIRTH_Y)
         date_of_birth_year.click()
-        select_date_of_birth_year = self.browser.find_element(*LoginPageLocators.CREATE_FORM_PERSONAL_SELECT_DATE_OF_BIRTH_Y)
+        select_date_of_birth_year = self.browser.find_element(
+            *LoginPageLocators.CREATE_FORM_PERSONAL_SELECT_DATE_OF_BIRTH_Y)
         select_date_of_birth_year.click()
         mailing_list = self.browser.find_element(*LoginPageLocators.CREATE_FORM_PERSONAL_NEWSLETTER)
         mailing_list.click()
@@ -43,8 +47,8 @@ class LoginPage(BasePage):
         address_last_name.send_keys("Ottow")
         address_company = self.browser.find_element(*LoginPageLocators.CREATE_FORM_ADDRESS_COMPANY)
         address_company.send_keys("Rembrandt")
-        address_address = self.browser.find_element(*LoginPageLocators.CREATE_FORM_ADDRESS_ADDRESS)
-        address_address.send_keys("Sport ave, 77")
+        # address_address = self.browser.find_element(*LoginPageLocators.CREATE_FORM_ADDRESS_ADDRESS)
+        # address_address.send_keys("Sport ave, 77")
         address_address_line2 = self.browser.find_element(*LoginPageLocators.CREATE_FORM_ADDRESS_ADDRESS_LINE2)
         address_address_line2.send_keys("Sport ave, 55")
         address_city = self.browser.find_element(*LoginPageLocators.CREATE_FORM_ADDRESS_CITY)
@@ -60,7 +64,8 @@ class LoginPage(BasePage):
         address_select_country = self.browser.find_element(*LoginPageLocators.CREATE_FORM_ADDRESS_SELECT_COUNTRY)
         address_select_country.click()
         address_add_info = self.browser.find_element(*LoginPageLocators.CREATE_FORM_ADDRESS_ADD_INFO)
-        address_add_info.send_keys("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.")
+        address_add_info.send_keys(
+            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.")
         address_home_phone = self.browser.find_element(*LoginPageLocators.CREATE_FORM_ADDRESS_HOME_PHONE)
         address_home_phone.send_keys("+380991234567")
         address_mob_phone = self.browser.find_element(*LoginPageLocators.CREATE_FORM_ADDRESS_MOBILE_PHONE)
@@ -69,10 +74,17 @@ class LoginPage(BasePage):
         address_alias.send_keys("Office")
         registration_btn = self.browser.find_element(*LoginPageLocators.REGISTER_BTN)
         registration_btn.click()
-        assert self.is_element_present(*LoginPageLocators.SUCCESSFUL_REGISTRATION), "Registration was not complete"
-        # print(self.is_not_element_present(*LoginPageLocators.ERROR_OF_FORM).text)
+        assert self.is_element_present(*LoginPageLocators.SUCCESSFUL_REGISTRATION), \
+            f"Registration was not complete. Error in element: {self.browser.find_element(*LoginPageLocators.ERROR_OF_FORM).text}"
+
+    def sign_in_user(self):
+        signin_email_field = self.browser.find_element(*LoginPageLocators.SIGNIN_EMAIL_FIELD)
+        signin_email_field.send_keys(*AuthorisationData.USER_EMAIL_TOTO)
+        signin_pass_field = self.browser.find_element(*LoginPageLocators.SIGNIN_PASSWORD_FIELD)
+        signin_pass_field.send_keys(*AuthorisationData.USER_PASS_TOTO)
+        signin_btn = self.browser.find_element(*LoginPageLocators.SIGNIN_BTN)
+        signin_btn.click()
+        assert self.is_element_present(*LoginPageLocators.ACCOUNT_PAGE_CHECK), \
+            "User was not Sign In"
 
 
-
-
-        time.sleep(2)
