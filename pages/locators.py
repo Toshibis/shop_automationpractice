@@ -10,6 +10,7 @@ class MainPageLocators:
     BESTSELLERS_ITEM = (By.CSS_SELECTOR, ".price-percent-reduction")
 
 
+
 class LoginPageLocators:
     #Sign Up elements
     SIGNUP_EMAIL_FIELD = (By.XPATH, "//input[@id='email_create']")
@@ -57,8 +58,19 @@ class LoginPageLocators:
 
 class BasketPageLocators:
     PRODUCT_COLOR = (By.XPATH, "//a[@id='color_8']")
-    ADD_TO_CART_BTN = (By.XPATH, "//span[normalize-space()='Add to cart']")
+    ADD_TO_CART_BTN = (By.XPATH, '//*[@id="add_to_cart"]/button')
     SUCCESSFULLY_ADDING_TO_CART = (By.XPATH, "//h2[normalize-space()='Product successfully added to your shopping cart']")
+    CHECKOUT_BTN = (By.XPATH, '//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a')
 
 
+class CheckOutLocators:
+    PROCEED_TO_CHECKOUT_BTN_STEP1 = (By.XPATH, "//a[@class='button btn btn-default standard-checkout button-medium']//span[contains(text(),'Proceed to checkout')]")
+    PROCEED_TO_CHECKOUT_SIGN_IN_BTN = (By.XPATH, '//*[@id="SubmitLogin"]')
+    PROCEED_TO_CHECKOUT_BTN_STEP2 = (By.XPATH, "//button[@name='processAddress']//span[contains(text(),'Proceed to checkout')]")
+    AGREE_BTN = (By.XPATH, "//input[@id='cgv']")
+    PROCEED_TO_CHECKOUT_BTN_STEP3 = (By.XPATH, '//*[@id="center_column"]/form/p/button')
+    PROCEED_TO_CHECKOUT_BTN_STEP4 = (By.XPATH, '//*[@id="form"]/p/button')
+    PAY_BACK = (By.XPATH, "//a[@title='Pay by check.']//span[contains(text(),'(order processing will be longer)')]")
+    CONFIRM_ORDER = (By. XPATH, "//span[normalize-space()='I confirm my order']")
+    SUCCESSFULLY_ORDER_MESSAGE = (By.XPATH, "//p[@class='alert alert-success']")
 
